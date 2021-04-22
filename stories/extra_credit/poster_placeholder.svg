@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="279px" height="390px" viewBox="0 0 279 390" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 61.2 (89653) - https://sketch.com -->
+    <title>Image Copy 4</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Home" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Mobile-Portrait" transform="translate(-22.000000, -296.000000)" stroke="#C2C2C2">
+            <g id="Image" transform="translate(22.000000, 296.000000)">
+                <g>
+                    <rect id="Rectangle" x="0.5" y="0.5" width="277.337292" height="389" rx="3"></rect>
+                    <g id="basic_picture" transform="translate(114.858022, 178.724235)">
+                        <rect id="Rectangle-path" x="0" y="0" width="52.0247943" height="35.2426026" rx="3"></rect>
+                        <polyline id="Shape" points="0 30.2079451 19.2995205 13.4257534 29.3688355 23.4950684 34.403493 16.7821917 52.0247943 31.8861642"></polyline>
+                        <circle id="Oval" cx="41.9554792" cy="9.23020543" r="4.19554792"></circle>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
