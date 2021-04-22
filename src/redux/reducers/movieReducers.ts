@@ -15,7 +15,19 @@ export interface IMoviesState {
 
 /**
  * The approach with cahing data in the store allows to avoid extra
- * network calls. Depending on particular situation the caching queue can
+ * network calls.
+ *
+ * I was thinking about refactoring caching to more normalized way
+ * when we would have a single array where we store all short movie
+ * models regardless of where they came from, but unfortunately didn't
+ * have time for that. With this approach if the movie that is loaded
+ * is already cached it wouldn't be added to that single cache array.
+ * Array for the movies on the main page and search movies object in this
+ * case would store only ids of the movies. That way we'll avoid data
+ * duplication. At this point it's the biggest improvements I'm envisioning
+ * for the current implementation.
+ *
+ * Depending on particular situation the caching queue can
  * have a limit of elemets or time expiration. Or store can be build without cache approach.
  */
 const initialState = {
