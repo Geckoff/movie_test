@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useCallback, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { requestSingleMovieByDbId, requestSingleMovieByImdbId } from "../../redux/actions/actions";
 import { getFullMovie } from "../../redux/selectors";
@@ -19,20 +19,20 @@ export interface ISingleMovie {
 export const SingleMovie: React.FC<ISingleMovie> = ({ location, match }) => {
 	let idParam = match.params.id;
 	const id = typeof idParam === "string" && isNumeric(idParam) ? parseInt(idParam) : null;
-	const imdbId = location.state?.imdbId;
 	const resultsPath = location.state?.sourcePath || "/";
-	const dispatch = useDispatch();
+	const dispatch = useCallback(useDispatch(), []);
 	const movie = useSelector(getFullMovie(id));
 
 	useEffect(() => {
 		if (!movie && id !== null) {
+			const imdbId = location.state?.imdbId;
 			if (imdbId === undefined) {
 				dispatch(requestSingleMovieByDbId(id));
 			} else {
 				dispatch(requestSingleMovieByImdbId(imdbId, id));
 			}
 		}
-	}, []);
+	}, [dispatch]);
 
 	return (
 		<LoadingBlock>

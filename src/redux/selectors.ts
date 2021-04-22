@@ -1,4 +1,3 @@
-import { ILoadingState } from "./reducers";
 import { IAppState } from "./rootReducer";
 
 export const getAllMovies = (state: IAppState) => state.main.movies;

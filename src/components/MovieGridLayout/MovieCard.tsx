@@ -13,12 +13,13 @@ export const MovieCard: React.FC<IMovieCardProps> = ({ movie, sourcePath }) => {
 	const [hasImageError, setHasImageError] = useState(false);
 
 	useEffect(() => {
+		const img = imgEl.current;
 		const listener = () => {
 			setHasImageError(true);
 		};
-		imgEl.current!.addEventListener("error", listener);
+		img!.addEventListener("error", listener);
 		return () => {
-			imgEl.current!.removeEventListener("error", listener);
+			img!.removeEventListener("error", listener);
 		};
 	}, []);
 
