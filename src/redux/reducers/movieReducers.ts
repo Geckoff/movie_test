@@ -3,7 +3,7 @@ import {
 	SEARCH_SUCCESS,
 	SINGLE_MOVIE_LOADED_SUCCESS,
 } from "../actions/actionTypes";
-import { ShortMovieModel, FullMovieModel } from "../models";
+import { getShortMovieModel, getFullMovieModel } from "../models";
 import { IFullMovieModel, IShortMovieModel } from "../models/types";
 import { Reducer } from "redux";
 
@@ -32,8 +32,8 @@ export const moviesReducer: Reducer<IMoviesState> = (state = initialState, actio
 		case ALL_MOVIES_LOADED_SUCCESS:
 			return {
 				...state,
-				movies: action.payload.movies.map(
-					(movie: IShortMovieModel) => new ShortMovieModel(movie)
+				movies: action.payload.movies.map((movie: IShortMovieModel) =>
+					getShortMovieModel(movie)
 				),
 			};
 		case SINGLE_MOVIE_LOADED_SUCCESS:
@@ -42,12 +42,12 @@ export const moviesReducer: Reducer<IMoviesState> = (state = initialState, actio
 				...state,
 				cachedFullMovies: [
 					...state.cachedFullMovies,
-					new FullMovieModel(dbId, fullMovieData),
+					getFullMovieModel(dbId, fullMovieData),
 				],
 			};
 		case SEARCH_SUCCESS:
 			const { movies, searchTerm } = action.payload;
-			const movieModels = movies.map((movie: IShortMovieModel) => new ShortMovieModel(movie));
+			const movieModels = movies.map((movie: IShortMovieModel) => getShortMovieModel(movie));
 
 			return {
 				...state,

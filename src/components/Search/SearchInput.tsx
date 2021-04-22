@@ -7,7 +7,9 @@ export const SearchInput: React.FC = () => {
 	const [searchTerm, setSearchTerm] = useState("");
 
 	const goToSearch = (searchTerm: string) => {
-		history.push(`/?q=${searchTerm}`);
+		if (searchTerm !== "") {
+			history.push(`/?q=${searchTerm}`);
+		}
 	};
 
 	const onInputEnterPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
